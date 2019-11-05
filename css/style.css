@@ -1,0 +1,166 @@
+/* ---- stylings ---
+1: #??
+2: #??
+
+*/
+@import url("https://fonts.googleapis.com/css?family=Major+Mono+Display&display=swap");
+
+@import url("https://fonts.googleapis.com/css?family=Caveat&display=swap");
+
+/* ---- reset ---- */
+
+html {
+  box-sizing: border-box;
+  background-color: white;
+}
+
+*,
+*:before,
+*:after {
+  box-sizing: inherit;
+}
+
+body {
+  margin: 0;
+  padding: 50px 0 0 0;
+  font-family: "Major Mono Display", monospace;
+}
+
+body p {
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+h1 {
+  font-family: "Major Mono Display", monospace;
+  letter-spacing: 10px;
+  color: #4E5F66;
+}
+
+/* Game screen*/
+
+.splash-main {
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+}
+
+.start-btn, .restart-btn {
+  color: #fff !important;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #CD553A;
+  padding: 20px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+  display: inline-block;
+  border: none;
+  transition: all 0.4s ease 0s;
+}
+
+.start-btn:hover {
+  background: #BA4428;
+  letter-spacing: 1px;
+  -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+  -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+  box-shadow: 5px 40px -10px rgba(0, 0, 0, 0.57);
+  transition: all 0.4s ease 0s;
+}
+
+.restart-btn:hover {
+  background: #BA4428;
+  letter-spacing: 1px;
+  -webkit-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+  -moz-box-shadow: 0px 5px 40px -10px rgba(0, 0, 0, 0.57);
+  box-shadow: 5px 40px -10px rgba(0, 0, 0, 0.57);
+  transition: all 0.4s ease 0s;
+}
+
+.instructions {
+  color: #4E5F66;
+}
+
+.right-btn {
+  color: #fff;
+  text-transform: uppercase;
+  text-decoration: none;
+  background: #B7CACE;
+  margin-bottom: 10px;
+  padding: 5px 20px;
+  border-radius: 5px;
+  display: inline-block;
+  border: none;
+  transition: all 0.4s ease 0s;
+}
+
+.instructions p {
+  color: #4E5F66;
+  font-family: "Major Mono Display", monospace;
+  font-weight: bold;
+  text-align: center;
+  text-decoration: underline white;
+}
+
+.instructions li {
+  color: #4E5F66;
+  font-family: "Major Mono Display", monospace;
+  font-weight: bold;
+  list-style: none;
+}
+
+/* Game screen*/
+.game-container {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: flex-start;
+  align-content: center;
+}
+
+.left-side {
+  height: 768px;
+  width: 256px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+}
+
+.score-lives {
+  color: #CD553A;
+  font-family: "Major Mono Display", monospace;
+  font-size: 20px;
+  font-weight: bold;
+  display: flex;
+  flex-direction: column;
+}
+
+.grandma-tip {
+  color: black;
+  font-family: "Major Mono Display", monospace;
+  
+}
+
+.quote .value {
+  font-family: "Caveat", cursive;
+  font-size: 30px;
+}
+
+.canvas-container {
+  height: 768px;
+  width: 768px;
+  background-color: white;
+  display: flex;
+  flex-direction: row;
+}
+
+/* GameOver screen*/
+
+.gameover-main {
+  color: #4E5F66;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+}
