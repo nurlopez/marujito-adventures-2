@@ -3,17 +3,17 @@
 function FoodDonut(canvas, x, speed) {
     this.canvas = canvas;
     this.ctx2 = canvas.getContext('2d');
-    this.size = 20;
+    this.size = 40;
     this.y = 0;
     this.x = x;
     this.speed = speed;
+    this.imageDonut = new Image ();
 }
   
 FoodDonut.prototype.draw = function() {
-    this.ctx2.fillStyle = '#ffc0cb';
-    // fillRect(x, y, width, height)
-    this.ctx2.fillRect(this.x, this.y, this.size, this.size);
-  };
+  this.imageDonut.src = './img/donut.png';
+  this.ctx2.drawImage(this.imageDonut, this.x, this.y, this.size, this.size);
+ };
   
   FoodDonut.prototype.updatePosition = function() {
     this.y = this.y + this.speed;

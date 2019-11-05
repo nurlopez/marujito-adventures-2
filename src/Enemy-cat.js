@@ -2,17 +2,17 @@
 
 function Enemy(canvas, x, speed) {
     this.canvas = canvas;
-    this.ctx = canvas.getContext('2d');
-    this.size = 20;
+    this.ctx3 = canvas.getContext('2d');
+    this.size = 75;
     this.y = 0;
     this.x = x;
     this.speed = speed;
+    this.imageCat = new Image ();
   }
   
   Enemy.prototype.draw = function() {
-    this.ctx.fillStyle = '#FF6F27';
-    // fillRect(x, y, width, height)
-    this.ctx.fillRect(this.x, this.y, this.size, this.size);
+    this.imageCat.src = './img/cat.png';
+    this.ctx3.drawImage(this.imageCat, this.x, this.y, this.size, this.size);
   };
   
   Enemy.prototype.updatePosition = function() {
