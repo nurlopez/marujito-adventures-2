@@ -58,6 +58,14 @@ function main() {
           <span class="value"></span>
         </div>
         </div>
+        <article class = "key">
+      <p>KEY</p>
+      <ul>
+      <li><img src ="./img/seed.png" width = 20px"> = + 100 pts</li>
+      <li><img src ="./img/donut.png" width = 20px"> = - 50 pts</li>
+      <li><img src ="./img/cat.png" width = 20px"> = GAME OVER</li>
+      </ul>
+      </article>
         <article class="grandma-tip">
         <div class="quote">
           <span class="label">pepita says:</span>
@@ -85,7 +93,7 @@ function main() {
   function createGameOverScreen(score) {
     gameOverScreen = buildDom(`
       <main class="gameover-main">
-      <img src="./img/white-sq-300x300.jpg" alt="cover image">
+      <img src="./img/backcover-gameover.png" alt="backcover image">
         <h1>Game over</h1>
         <p>Your score: <span>${score}</span></p>
         <button class = "restart-btn">Restart</button>

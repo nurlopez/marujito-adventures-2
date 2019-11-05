@@ -22,7 +22,7 @@ html {
 
 body {
   margin: 0;
-  padding: 50px 0 0 0;
+  padding: 0;
   font-family: "Major Mono Display", monospace;
 }
 
@@ -133,6 +133,18 @@ h1 {
   font-weight: bold;
   display: flex;
   flex-direction: column;
+}
+
+.key {
+  display: flex;
+  align-content: center;
+}
+
+.key li {
+  color: #4E5F66;
+  font-family: "Major Mono Display", monospace;
+  font-weight: bold;
+  list-style: none;
 }
 
 .grandma-tip {
