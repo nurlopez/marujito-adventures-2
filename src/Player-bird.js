@@ -11,7 +11,8 @@ function Player(canvas, lives, score) {
     this.direction = 0;
     this.speed = 5;
     this.imageBird = new Image ();
-    }
+    //this.imageBird2 = new Image ();
+  }
   
   Player.prototype.setDirection = function(direction) {
     // +1 right  -1 left
@@ -111,4 +112,9 @@ function Player(canvas, lives, score) {
     this.imageBird.src = './img/marujito.png';
     this.ctx.drawImage(this.imageBird, this.x, this.y, this.size, this.size);
    };
+
+  /* Player.prototype.draw2 = function() {
+    this.imageBird2.src = './img/donut.png';
+    this.ctx.drawImage(this.imageBird2, this.x, this.y, this.size, this.size);
+   };*/
   

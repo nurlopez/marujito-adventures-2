@@ -20,6 +20,9 @@ FoodDonut.prototype.draw = function() {
   };
   
   FoodDonut.prototype.isInsideScreen = function() {
-    // if y plus half of its size is smaller then 0 return
-    return this.y + this.size / 2 > 0;
+    if (this.y + this.size / 2 > 0 && this.x + this.size < this.canvas.width) {
+      return true 
+    }
+     // if y plus half of its size is smaller then 0 return
+    //return this.y + this.size / 2 > 0;
   };

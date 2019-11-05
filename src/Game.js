@@ -38,6 +38,7 @@ Game.prototype.start = function () {
         console.log(event.key);
         if (event.key === 'ArrowLeft') {
             this.player.setDirection('left'); // move left
+           //this.player.draw2 ('image');
         } else if (event.key === 'ArrowRight') {
             this.player.setDirection('right'); // move right
         } else if (event.keyCode == 32) {
@@ -152,7 +153,7 @@ Game.prototype.checkCollisions = function () {
                     'You catch more flies with honey than with vinegar',
                     'Don\'t leave until tomorrow what you can do today'
                 ]
-                this.quote = grannyTips[Math.floor(Math.random() * grannyTips.length)];
+                this.quote = grannyTips[Math.floor(Math.random() * (grannyTips.length-1))];
                 return this.quote;
             }
             foodSeed.y = 0 - foodSeed.size;

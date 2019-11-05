@@ -61,9 +61,9 @@ function main() {
         <article class = "key">
       <p>KEY</p>
       <ul>
-      <li><img src ="./img/seed.png" width = 20px"> = + 100 pts</li>
-      <li><img src ="./img/donut.png" width = 20px"> = - 50 pts</li>
-      <li><img src ="./img/cat.png" width = 20px"> = GAME OVER</li>
+      <li><img src ="./img/seed.png" width = 30px"> = + 100 pts</li>
+      <li><img src ="./img/donut.png" width = 30px"> = - 50 pts</li>
+      <li><img src ="./img/cat.png" width = 30px"> = GAME OVER</li>
       </ul>
       </article>
         <article class="grandma-tip">

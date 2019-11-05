@@ -20,7 +20,11 @@ function Enemy(canvas, x, speed) {
   };
   
   Enemy.prototype.isInsideScreen = function() {
+    
+    if (this.y + this.size / 2 > 0 && this.x + this.size < this.canvas.width) {
+      return true 
+    }
     // if y plus half of its size is smaller then 0 return
-    return this.y + this.size / 2 > 0;
+    //return this.y + this.size / 2 > 0;
   };
   

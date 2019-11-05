@@ -135,9 +135,9 @@ h1 {
   flex-direction: column;
 }
 
-.key {
-  display: flex;
-  align-content: center;
+.key p {
+  text-align: center;
+  text-decoration: underline;
 }
 
 .key li {
