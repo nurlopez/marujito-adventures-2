@@ -63,7 +63,7 @@ function main() {
       <p>KEY</p>
       <ul>
       <li><img src ="./img/seed.png" width = 30px"> = + 100 pts</li>
-      <li><img src ="./img/donut.png" width = 30px"> = - 50 pts</li>
+      <li><img src ="./img/donut.png" width = 30px"> = - 100 pts</li>
       <li><img src ="./img/cat.png" width = 30px"> = GAME OVER</li>
       </ul>
       </article>

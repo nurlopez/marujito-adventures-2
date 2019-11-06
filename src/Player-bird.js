@@ -107,7 +107,7 @@ function Player(canvas, lives, score) {
   };
 
   Player.prototype.subtractScore = function() {
-    this.score -= 50;
+    this.score -= 100;
   };
   
   Player.prototype.draw = function() {
