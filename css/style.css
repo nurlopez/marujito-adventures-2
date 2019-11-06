@@ -18,6 +18,7 @@ html {
 *:before,
 *:after {
   box-sizing: inherit;
+  margin-top: 5px;
 }
 
 body {
@@ -46,7 +47,7 @@ h1 {
   align-content: center;
 }
 
-.start-btn, .restart-btn {
+.start-btn, .start-btn2, .restart-btn {
   color: #fff !important;
   text-transform: uppercase;
   text-decoration: none;
@@ -237,10 +238,8 @@ h1 {
 }
 
 .score-table {
- display: flex;
- flex-direction: row;
  font-size: 20px;
- color: #BA4428
+ color: #BD4455
 }
 
 .score-table li {

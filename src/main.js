@@ -34,7 +34,7 @@ function main() {
     document.body.appendChild(splashScreen);
 
     var startButton = splashScreen.querySelector('button');
-    startButton.addEventListener('click', function() {
+    startButton.addEventListener('click', function () {
       startGame();
     });
   }
@@ -114,9 +114,11 @@ function main() {
     `);
 
     var button = gameOverScreen.querySelector('.score-btn');
+
     button.addEventListener('click', function () {
       playerName = gameOverScreen.querySelector('#name').value;
     });
+
     button.addEventListener('click', scoreBoard);
 
     var button = gameOverScreen.querySelector('.restart-btn');
@@ -128,7 +130,7 @@ function main() {
     var span = gameOverScreen.querySelector('span');
     span.innerText = score;
 
-   
+
 
     document.body.appendChild(gameOverScreen);
   }
@@ -139,61 +141,60 @@ function main() {
     }
   }
 
-    // -- score screen
+  // -- score screen
 
-    function createScoreScreen(score, playerName) {
-      scoreScreen = buildDom(`
+  function createScoreScreen(score, playerName) {
+    scoreScreen = buildDom(`
       <main class="score-main">
       <img src="./img/cover-marujito.png" alt="cover image">
         <h1>SCORE BOARD</h1>
         <p class= "score-table">
-        <span id="name">${playerName}</span>_score is:_<span>${score}</span>
+        <span id="name">${playerName}</span>. score is: .<span>${score}</span>
         </p>
-        <button class= "start-btn">home</button>
+        <button class= "start-btn2">home</button>
       </main>
     `);
-      var button = scoreScreen.querySelector('.start-btn');
-      button.addEventListener('click', backSplash);
+    var button = scoreScreen.querySelector('.start-btn2');
+    button.addEventListener('click', backSplash2);
 
-      // local storage 
-      var scoreArr;
+    // local storage 
+    var scoreArr;
 
-      if (localStorage.getItem('scoreArr') === null) {
-        scoreArr = [];
-      } else {
-        scoreArr = JSON.parse(localStorage.getItem('scoreArr'));
-      }
-
-      var nameScore = [
-        {name: playerName,
-         score: score},
-      ];
-
-      scoreArr.push(nameScore);
-
-      var nameScoreStringified = JSON.stringify(nameScore);
-
-      localStorage.setItem('scoreArr', nameScoreStringified);
-      console.log(nameScoreStringified);
-      
-      var retrieved = localStorage.getItem('scoreArr');
-      console.log('retrieved', retrieved);
-
-      var nameScoreParsed = JSON.parse(retrieved);
-      console.log(nameScoreParsed);
-
-      //nameScoreParsed.push(nameScore);
-
-      //var stringifiedAgain = JSON.stringify(nameScoreParsed);
-      //localStorage.setItem('nameScore', stringifiedAgain);
-
-      document.body.appendChild(scoreScreen);
-  
+    if (localStorage.getItem('scoreArr') === null) {
+      scoreArr = [];
+    } else {
+      scoreArr = JSON.parse(localStorage.getItem('scoreArr'));
     }
-  
-    function removeScoreScreen() {
-      scoreScreen.remove();
-    }
+
+    var nameScore = [{
+      name: playerName,
+      score: score
+    }, ];
+
+    scoreArr.push(nameScore);
+
+    var nameScoreStringified = JSON.stringify(nameScore);
+
+    localStorage.setItem('scoreArr', nameScoreStringified);
+    console.log(nameScoreStringified);
+
+    var retrieved = localStorage.getItem('scoreArr');
+    console.log('retrieved', retrieved);
+
+    var nameScoreParsed = JSON.parse(retrieved);
+    console.log(nameScoreParsed);
+
+    //nameScoreParsed.push(nameScore);
+
+    //var stringifiedAgain = JSON.stringify(nameScoreParsed);
+    //localStorage.setItem('nameScore', stringifiedAgain);
+
+    document.body.appendChild(scoreScreen);
+
+  }
+  function removeScoreScreen() {
+    scoreScreen.remove();
+  }
 
   // -- Setting the game state
 
@@ -201,14 +202,14 @@ function main() {
     removeSplashScreen();
     // later we need to add clearing of the gameOverScreen
     removeGameOverScreen();
-    
+
 
     game = new Game();
     game.gameScreen = createGameScreen();
 
     game.start();
     // End the game
-    game.passGameOverCallback(function() {
+    game.passGameOverCallback(function () {
       gameOver(game.score);
     });
   }
@@ -218,17 +219,22 @@ function main() {
     createGameOverScreen(score);
   }
 
-  function scoreBoard () {
+  function scoreBoard() {
     removeGameOverScreen();
     createScoreScreen(game.score, playerName);
   }
 
   function backSplash() {
-    removeScoreScreen();
     removeGameOverScreen();
     createSplashScreen();
-
   }
+
+  function backSplash2() {
+    removeScoreScreen();
+    createSplashScreen();
+  }
+
+
   // -- initialize Splash screen on initial start
 
   createSplashScreen();
