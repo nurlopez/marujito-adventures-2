@@ -189,6 +189,11 @@ h1 {
   justify-content: space-between
 }
 
+.name {
+  font-weight: bold;
+  font-size: 20px;
+}
+
 .your-score {
   color: #4E5F66;
   font-family: "Major Mono Display", monospace;
@@ -219,6 +224,31 @@ h1 {
     box-shadow: 5px 40px -10px rgba(0, 0, 0, 0.57);
     transition: all 0.4s ease 0s;
   }
+
+/* Score board screen*/
+
+.score-main {
+  color: #4E5F66;
+  display: flex;
+  flex-direction: column;
+  justify-items: center;
+  align-items: center;
+  align-content: center;
+}
+
+.score-table {
+ display: flex;
+ flex-direction: row;
+ font-size: 20px;
+ color: #BA4428
+}
+
+.score-table li {
+  color: #4E5F66;
+  font-family: "Major Mono Display", monospace;
+  font-weight: bold;
+  list-style: none;
+}
 
 
 

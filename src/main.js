@@ -97,8 +97,9 @@ function main() {
       <main class="gameover-main">
       <img src="./img/backcover-gameover.png" alt="backcover image">
         <h1>Game over</h1>
+        </br>
         <div class="name">
-        <label for="name">Name:</label>
+        <label for="name">nAme:</label>
         <input type="text" id="name" name="name" required
        minlength="4" maxlength="8" size="10">
         </div>
@@ -140,20 +141,18 @@ function main() {
       scoreScreen = buildDom(`
       <main class="score-main">
       <img src="./img/cover-marujito.png" alt="cover image">
-        <h1>Score Board</h1>
-        <article class = "score-table">
-        <ul>
-       
-        <li><span>${name}</span></li>
-        <li>Your score<span>${score}</span></li>
-        <li>form row3</li>
-        </ul>
-        </article>
+        <h1>SCORE BOARD</h1>
+        <p class= "score-table">
+        <span>${name}</span>_score is:_<span>${score}</span>
+        </p>
         <button class= "start-btn">home</button>
       </main>
     `);
       var button = scoreScreen.querySelector('.start-btn');
       button.addEventListener('click', backSplash);
+
+      var span = scoreScreen.querySelector('span');
+      span.innerText = name;
 
       document.body.appendChild(scoreScreen);
   
