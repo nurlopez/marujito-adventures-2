@@ -11,7 +11,7 @@ function main() {
   var splashScreen; // Start Screen
   var gameOverScreen; // Game Over Screen
   var scoreScreen; // score Screen
-
+  var playerName;
   // -- splash screen
 
   function createSplashScreen() {
@@ -100,8 +100,7 @@ function main() {
         </br>
         <div class="name">
         <label for="name">nAme:</label>
-        <input type="text" id="name" name="name" required
-       minlength="4" maxlength="8" size="10">
+        <input type="text" id="name" name="name">
         </div>
         <p class="your-score">Your score: <span>${score}</span></p>
         <div class = "btn-container">
@@ -115,6 +114,9 @@ function main() {
     `);
 
     var button = gameOverScreen.querySelector('.score-btn');
+    button.addEventListener('click', function () {
+      playerName = gameOverScreen.querySelector('#name').value;
+    });
     button.addEventListener('click', scoreBoard);
 
     var button = gameOverScreen.querySelector('.restart-btn');
@@ -125,6 +127,8 @@ function main() {
 
     var span = gameOverScreen.querySelector('span');
     span.innerText = score;
+
+   
 
     document.body.appendChild(gameOverScreen);
   }
@@ -137,13 +141,13 @@ function main() {
 
     // -- score screen
 
-    function createScoreScreen(score, name) {
+    function createScoreScreen(score, playerName) {
       scoreScreen = buildDom(`
       <main class="score-main">
       <img src="./img/cover-marujito.png" alt="cover image">
         <h1>SCORE BOARD</h1>
         <p class= "score-table">
-        <span>${name}</span>_score is:_<span>${score}</span>
+        <span id="name">${playerName}</span>_score is:_<span>${score}</span>
         </p>
         <button class= "start-btn">home</button>
       </main>
@@ -151,15 +155,9 @@ function main() {
       var button = scoreScreen.querySelector('.start-btn');
       button.addEventListener('click', backSplash);
 
-      var span = scoreScreen.querySelector('span');
-      span.innerText = name;
-
+         
       document.body.appendChild(scoreScreen);
   
-      //var startButton = splashScreen.querySelector('button');
-      //startButton.addEventListener('click', function() {
-      //  startGame();
-      //});
     }
   
     function removeScoreScreen() {
@@ -191,7 +189,7 @@ function main() {
 
   function scoreBoard () {
     removeGameOverScreen();
-    createScoreScreen(game.score, name);
+    createScoreScreen(game.score, playerName);
   }
 
   function backSplash() {
