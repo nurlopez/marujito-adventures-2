@@ -37,8 +37,8 @@ Game.prototype.start = function () {
     this.handleKeyDown = function (event) {
         console.log(event.key);
         if (event.key === 'ArrowLeft') {
-            this.player.setDirection('left'); // move left
-           //this.player.draw2 ('image');
+            this.player.setDirection('left');
+            this.player.draw(this.imageBirdL);
         } else if (event.key === 'ArrowRight') {
             this.player.setDirection('right'); // move right
         } else if (event.keyCode == 32) {

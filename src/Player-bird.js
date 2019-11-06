@@ -11,15 +11,17 @@ function Player(canvas, lives, score) {
     this.direction = 0;
     this.speed = 5;
     this.imageBird = new Image ();
-    //this.imageBird2 = new Image ();
+    this.imageBirdR = new Image ();
+    this.imageBirdR.src = './img/marujito.png';
+    this.imageBirdL = new Image ();
+    this.imageBirdL.src = './img/marujitoL.png';
   }
   
   Player.prototype.setDirection = function(direction) {
     // +1 right  -1 left
-    if (direction === 'left'){ this.direction = -1;}
+    if (direction === 'left'){ this.direction = -1}
     else if (direction === 'right'){ this.direction = 1;}
-    else if (this.direction === 'keyup') {this.direction = 0;}
-  };
+     };
   
   Player.prototype.didCollide = function(enemy) {
     var playerLeft = this.x;
@@ -109,10 +111,24 @@ function Player(canvas, lives, score) {
   };
   
   Player.prototype.draw = function() {
-    this.imageBird.src = './img/marujito.png';
-    this.ctx.drawImage(this.imageBird, this.x, this.y, this.size, this.size);
-   };
+    
+    switch (this.direction) {
+      case -1:
+        this.imageBird = this.imageBirdL;    
+        this.ctx.drawImage(this.imageBird, this.x, this.y, this.size, this.size);
+        break; 
+      case 1:
+        this.imageBird = this.imageBirdR;    
+        this.ctx.drawImage(this.imageBird, this.x, this.y, this.size, this.size);
+        break; 
+        default:
+      this.imageBird = this.imageBirdR;
+         this.ctx.drawImage(this.imageBird, this.x, this.y, this.size, this.size);
+         break;
+     };
+    };
 
+ 
   /* Player.prototype.draw2 = function() {
     this.imageBird2.src = './img/donut.png';
     this.ctx.drawImage(this.imageBird2, this.x, this.y, this.size, this.size);
