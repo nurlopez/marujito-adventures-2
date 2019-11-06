@@ -155,7 +155,38 @@ function main() {
       var button = scoreScreen.querySelector('.start-btn');
       button.addEventListener('click', backSplash);
 
-         
+      // local storage 
+      var scoreArr;
+
+      if (localStorage.getItem('scoreArr') === null) {
+        scoreArr = [];
+      } else {
+        scoreArr = JSON.parse(localStorage.getItem('scoreArr'));
+      }
+
+      var nameScore = [
+        {name: playerName,
+         score: score},
+      ];
+
+      scoreArr.push(nameScore);
+
+      var nameScoreStringified = JSON.stringify(nameScore);
+
+      localStorage.setItem('scoreArr', nameScoreStringified);
+      console.log(nameScoreStringified);
+      
+      var retrieved = localStorage.getItem('scoreArr');
+      console.log('retrieved', retrieved);
+
+      var nameScoreParsed = JSON.parse(retrieved);
+      console.log(nameScoreParsed);
+
+      //nameScoreParsed.push(nameScore);
+
+      //var stringifiedAgain = JSON.stringify(nameScoreParsed);
+      //localStorage.setItem('nameScore', stringifiedAgain);
+
       document.body.appendChild(scoreScreen);
   
     }
