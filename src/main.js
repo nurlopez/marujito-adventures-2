@@ -10,6 +10,7 @@ function main() {
   var game; // instance of the Game
   var splashScreen; // Start Screen
   var gameOverScreen; // Game Over Screen
+  var scoreScreen; // score Screen
 
   // -- splash screen
 
@@ -96,11 +97,24 @@ function main() {
       <main class="gameover-main">
       <img src="./img/backcover-gameover.png" alt="backcover image">
         <h1>Game over</h1>
-        <p>Your score: <span>${score}</span></p>
+        <div class="name">
+        <label for="name">Name:</label>
+        <input type="text" id="name" name="name" required
+       minlength="4" maxlength="8" size="10">
+        </div>
+        <p class="your-score">Your score: <span>${score}</span></p>
+        <div class = "btn-container">
+        <button class = "score-btn">Add score!</button>
+        <div class = "btn-back-container">
         <button class = "restart-btn">Restart</button>
         <button class= "start-btn">home</button>
+        </div>
+        </div>
     </main>
     `);
+
+    var button = gameOverScreen.querySelector('.score-btn');
+    button.addEventListener('click', scoreBoard);
 
     var button = gameOverScreen.querySelector('.restart-btn');
     button.addEventListener('click', startGame);
@@ -120,12 +134,46 @@ function main() {
     }
   }
 
+    // -- score screen
+
+    function createScoreScreen(score, name) {
+      scoreScreen = buildDom(`
+      <main class="score-main">
+      <img src="./img/cover-marujito.png" alt="cover image">
+        <h1>Score Board</h1>
+        <article class = "score-table">
+        <ul>
+       
+        <li><span>${name}</span></li>
+        <li>Your score<span>${score}</span></li>
+        <li>form row3</li>
+        </ul>
+        </article>
+        <button class= "start-btn">home</button>
+      </main>
+    `);
+      var button = scoreScreen.querySelector('.start-btn');
+      button.addEventListener('click', backSplash);
+
+      document.body.appendChild(scoreScreen);
+  
+      //var startButton = splashScreen.querySelector('button');
+      //startButton.addEventListener('click', function() {
+      //  startGame();
+      //});
+    }
+  
+    function removeScoreScreen() {
+      scoreScreen.remove();
+    }
+
   // -- Setting the game state
 
   function startGame() {
     removeSplashScreen();
     // later we need to add clearing of the gameOverScreen
     removeGameOverScreen();
+    
 
     game = new Game();
     game.gameScreen = createGameScreen();
@@ -141,9 +189,14 @@ function main() {
     removeGameScreen();
     createGameOverScreen(score);
   }
+
+  function scoreBoard () {
+    removeGameOverScreen();
+    createScoreScreen(game.score, name);
+  }
+
   function backSplash() {
-    
-    
+    removeScoreScreen();
     removeGameOverScreen();
     createSplashScreen();
 
