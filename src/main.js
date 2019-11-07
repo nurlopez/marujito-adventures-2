@@ -154,6 +154,9 @@ function main() {
             <th>heAlth</th>
           </tr>
           <tr>
+        <th class="sub-th" colspan="2">TOP 3</th>
+        </tr>
+          <tr>
         <td><span id="name1"></span></td>
         <td><span id="score1">pts</span></td>
         <tr>
@@ -164,7 +167,14 @@ function main() {
         <td><span id="name3"></span></td>
         <td><span id="score3">pts</span></td>
         </tr>
-      </table> 
+        <tr>
+        <th class="sub-th" colspan="2" >Runner Up</th>
+        </tr>
+        <tr>
+        <td><span id="name4"></span></td>
+        <td><span id="score4">pts</span></td>
+        </tr>
+        </table> 
       </div>      
       <button class= "start-btn2">home</button>
       </main>
@@ -205,7 +215,7 @@ function main() {
     nameScoreParsed.sort(function(a, b) {
        return b.score - a.score; });
 
-    for (i=1; i <= 3; i++){
+    for (i=1; i <= 4; i++){
     var newPlayerName = scoreScreen.querySelector('#name'+(i));
     var newScore =  scoreScreen.querySelector('#score'+(i));
      console.log(newPlayerName);
