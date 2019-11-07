@@ -11,6 +11,7 @@ function Game() {
     this.gameScreen = null;
     this.score = 0;
     this.quote = 'Every 500 points I\'ll talk';
+    this.sound = new Audio ("./sounds/miau.mp3");
 }
 
 
@@ -127,6 +128,9 @@ Game.prototype.checkCollisions = function () {
     this.enemies.forEach(function (enemy) {
         if (this.player.didCollide(enemy)) {
             this.player.removeLife();
+            this.sound.play();
+
+            
 
             enemy.y = 0 - enemy.size;
 
