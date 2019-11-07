@@ -146,7 +146,7 @@ function main() {
   function createScoreScreen(score, playerName) {
     scoreScreen = buildDom(`
       <main class="score-main">
-      <img src="./img/cover-marujito.png" alt="cover image">
+      <img src="./img/marujito-score.png" alt="cover image">
         <h1>SCORE BOARD</h1>
         <p class= "score-table">
         <span id="name">${playerName}</span>. score is: .<span>${score}</span>
