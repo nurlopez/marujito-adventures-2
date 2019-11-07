@@ -250,13 +250,13 @@ h1 {
   font-weight: bold;
   list-style: none;
   width: 180px;
-  background-color:
-  
 }
 
-.sub-th {
-  text-color: #4E5F66;
-  padding: 5px;
+.score-table .sub-th {
+  background-color: white; 
+  color: #BA4428;
+  padding: 10px 0px 0px 0;
+  border-bottom: solid 1px;
 }
 
 

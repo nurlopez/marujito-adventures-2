@@ -168,7 +168,7 @@ function main() {
         <td><span id="score3">pts</span></td>
         </tr>
         <tr>
-        <th class="sub-th" colspan="2">Runner Up</th>
+        <th class="sub-th" colspan="2">runner Up</th>
         </tr>
         <tr>
         <td><span id="name4"></span></td>
