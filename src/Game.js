@@ -11,7 +11,10 @@ function Game() {
     this.gameScreen = null;
     this.score = 0;
     this.quote = 'Every 500 points I\'ll talk';
-    this.sound = new Audio ("./sounds/miau.mp3");
+    //this.soundCat = new Audio ("./sounds/miau.mp3");
+    this.soundDonut = new Audio ("./sounds/bite.mp3");
+    this.soundSeed = new Audio ("./sounds/seed.mp3");
+    this.soundBird = new Audio ("./sounds/move.mp3");
 }
 
 
@@ -40,8 +43,10 @@ Game.prototype.start = function () {
         if (event.key === 'ArrowLeft') {
             this.player.setDirection('left');
             this.player.draw(this.imageBirdL);
+            this.soundBird.play();
         } else if (event.key === 'ArrowRight') {
             this.player.setDirection('right'); // move right
+            this.soundBird.play();
         } else if (event.keyCode == 32) {
             this.player.direction = 0;
         };
@@ -64,7 +69,7 @@ Game.prototype.startLoop = function () {
         } else if (Math.random() > 0.98) {
             var randomY = this.canvas.height * Math.random();
             this.foodSeeds.push(new FoodSeed(this.canvas, randomY, 4));
-        } else if (Math.random() > 0.99) {
+        } else if (Math.random() > 0.995) {
             var randomY = this.canvas.height * Math.random();
             this.foodDonuts.push(new FoodDonut(this.canvas, randomY, 2));
         }
@@ -128,7 +133,7 @@ Game.prototype.checkCollisions = function () {
     this.enemies.forEach(function (enemy) {
         if (this.player.didCollide(enemy)) {
             this.player.removeLife();
-            this.sound.play();
+            //this.soundCat.play();
 
             
 
@@ -143,6 +148,7 @@ Game.prototype.checkCollisions = function () {
     this.foodSeeds.forEach(function (foodSeed) {
         if (this.player.didCollide(foodSeed)) {
             this.player.addScore();
+            this.soundSeed.play();
             if (this.player.score % 500 === 0) {
                 var grannyTips = [
                     'Potato slices on your face, cures headaches',
@@ -168,6 +174,7 @@ Game.prototype.checkCollisions = function () {
         if (this.player.didCollide(foodDonut)) {
             if (this.player.score > 0) {
                 this.player.subtractScore();
+                this.soundDonut.play();
                 if (this.player.score % 500 === 0) {
                     var grannyTips = [
                         'Potato slices on your face, cures headaches',
