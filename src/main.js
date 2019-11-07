@@ -12,6 +12,7 @@ function main() {
   var gameOverScreen; // Game Over Screen
   var scoreScreen; // score Screen
   var playerName;
+
   // -- splash screen
 
   function createSplashScreen() {
@@ -153,9 +154,16 @@ function main() {
             <th>heAlth</th>
           </tr>
           <tr>
-        <td><span id="name">${playerName}</span></td>
-        <td><span>${score} pts</span></td>
-      </tr>
+        <td><span id="name1"></span></td>
+        <td><span id="score1">pts</span></td>
+        <tr>
+        <td><span id="name2"></span></td>
+        <td><span id="score2">pts</span></td>
+        </tr>
+        <tr>
+        <td><span id="name3"></span></td>
+        <td><span id="score3">pts</span></td>
+        </tr>
       </table> 
       </div>      
       <button class= "start-btn2">home</button>
@@ -174,16 +182,16 @@ function main() {
       scoreArr = JSON.parse(localStorage.getItem("scoreArr"));
     }
 
-    var nameScore = [
+    var nameScore = 
       {
         name: playerName,
         score: score
       }
-    ];
+    ;
 
     scoreArr.push(nameScore);
 
-    var nameScoreStringified = JSON.stringify(nameScore);
+    var nameScoreStringified = JSON.stringify(scoreArr);
 
     localStorage.setItem("scoreArr", nameScoreStringified);
     console.log(nameScoreStringified);
@@ -194,10 +202,20 @@ function main() {
     var nameScoreParsed = JSON.parse(retrieved);
     console.log(nameScoreParsed);
 
-    //nameScoreParsed.push(nameScore);
+    for (i=1; i <= 3; i++){
+    var newPlayerName = scoreScreen.querySelector('#name'+(i));
+    var newScore =  scoreScreen.querySelector('#score'+(i));
+     console.log(newPlayerName);
+    // console.log(newScore);
+      if (nameScoreParsed[i-1] !== undefined) {
+        newPlayerName.innerHTML = nameScoreParsed[i-1].name;
+        newScore.innerHTML = nameScoreParsed[i-1].score;
+      }else {
+        newPlayerName.innerHTML = "";
+        newScore.innerHTML = "";
+      }
 
-    //var stringifiedAgain = JSON.stringify(nameScoreParsed);
-    //localStorage.setItem('nameScore', stringifiedAgain);
+   }
 
     document.body.appendChild(scoreScreen);
   }
@@ -249,3 +267,4 @@ function main() {
 }
 
 window.addEventListener("load", main);
+
