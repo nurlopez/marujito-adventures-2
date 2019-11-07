@@ -1,7 +1,7 @@
 // Main
 
 function buildDom(htmlString) {
-  var div = document.createElement('div');
+  var div = document.createElement("div");
   div.innerHTML = htmlString;
   return div.children[0];
 }
@@ -33,8 +33,8 @@ function main() {
 
     document.body.appendChild(splashScreen);
 
-    var startButton = splashScreen.querySelector('button');
-    startButton.addEventListener('click', function () {
+    var startButton = splashScreen.querySelector("button");
+    startButton.addEventListener("click", function() {
       startGame();
     });
   }
@@ -113,24 +113,22 @@ function main() {
     </main>
     `);
 
-    var button = gameOverScreen.querySelector('.score-btn');
+    var button = gameOverScreen.querySelector(".score-btn");
 
-    button.addEventListener('click', function () {
-      playerName = gameOverScreen.querySelector('#name').value;
+    button.addEventListener("click", function() {
+      playerName = gameOverScreen.querySelector("#name").value;
     });
 
-    button.addEventListener('click', scoreBoard);
+    button.addEventListener("click", scoreBoard);
 
-    var button = gameOverScreen.querySelector('.restart-btn');
-    button.addEventListener('click', startGame);
+    var button = gameOverScreen.querySelector(".restart-btn");
+    button.addEventListener("click", startGame);
 
-    var button = gameOverScreen.querySelector('.start-btn');
-    button.addEventListener('click', backSplash);
+    var button = gameOverScreen.querySelector(".start-btn");
+    button.addEventListener("click", backSplash);
 
-    var span = gameOverScreen.querySelector('span');
+    var span = gameOverScreen.querySelector("span");
     span.innerText = score;
-
-
 
     document.body.appendChild(gameOverScreen);
   }
@@ -148,38 +146,50 @@ function main() {
       <main class="score-main">
       <img src="./img/marujito-score.png" alt="cover image">
         <h1>SCORE BOARD</h1>
-        <p class= "score-table">
-        <span id="name">${playerName}</span>. score is: .<span>${score}</span>
-        </p>
-        <button class= "start-btn2">home</button>
+        <div class= "score-table">
+        <table>
+          <tr>
+            <th>Player</th>
+            <th>heAlth</th>
+          </tr>
+          <tr>
+        <td><span id="name">${playerName}</span></td>
+        <td><span>${score} pts</span></td>
+      </tr>
+      </table> 
+      </div>      
+      <button class= "start-btn2">home</button>
       </main>
     `);
-    var button = scoreScreen.querySelector('.start-btn2');
-    button.addEventListener('click', backSplash2);
 
-    // local storage 
+    var button = scoreScreen.querySelector(".start-btn2");
+    button.addEventListener("click", backSplash2);
+
+    // local storage
     var scoreArr;
 
-    if (localStorage.getItem('scoreArr') === null) {
+    if (localStorage.getItem("scoreArr") === null) {
       scoreArr = [];
     } else {
-      scoreArr = JSON.parse(localStorage.getItem('scoreArr'));
+      scoreArr = JSON.parse(localStorage.getItem("scoreArr"));
     }
 
-    var nameScore = [{
-      name: playerName,
-      score: score
-    }, ];
+    var nameScore = [
+      {
+        name: playerName,
+        score: score
+      }
+    ];
 
     scoreArr.push(nameScore);
 
     var nameScoreStringified = JSON.stringify(nameScore);
 
-    localStorage.setItem('scoreArr', nameScoreStringified);
+    localStorage.setItem("scoreArr", nameScoreStringified);
     console.log(nameScoreStringified);
 
-    var retrieved = localStorage.getItem('scoreArr');
-    console.log('retrieved', retrieved);
+    var retrieved = localStorage.getItem("scoreArr");
+    console.log("retrieved", retrieved);
 
     var nameScoreParsed = JSON.parse(retrieved);
     console.log(nameScoreParsed);
@@ -190,8 +200,8 @@ function main() {
     //localStorage.setItem('nameScore', stringifiedAgain);
 
     document.body.appendChild(scoreScreen);
-
   }
+
   function removeScoreScreen() {
     scoreScreen.remove();
   }
@@ -203,13 +213,12 @@ function main() {
     // later we need to add clearing of the gameOverScreen
     removeGameOverScreen();
 
-
     game = new Game();
     game.gameScreen = createGameScreen();
 
     game.start();
     // End the game
-    game.passGameOverCallback(function () {
+    game.passGameOverCallback(function() {
       gameOver(game.score);
     });
   }
@@ -234,10 +243,9 @@ function main() {
     createSplashScreen();
   }
 
-
   // -- initialize Splash screen on initial start
 
   createSplashScreen();
 }
 
-window.addEventListener('load', main);
+window.addEventListener("load", main);

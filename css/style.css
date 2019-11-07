@@ -238,15 +238,18 @@ h1 {
 }
 
 .score-table {
- font-size: 20px;
- color: #BD4455
+  font-size: 20px;
+  color: #CD553A;
+  text-align: center;
+  margin-bottom: 50px;
 }
 
-.score-table li {
-  color: #4E5F66;
-  font-family: "Major Mono Display", monospace;
+.score-table th {
   font-weight: bold;
   list-style: none;
+  width: 180px;
+  border-bottom: solid 2px
+  
 }
 
 
