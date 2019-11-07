@@ -12,7 +12,7 @@ function Game() {
     this.score = 0;
     this.quote = 'Every 500 points I\'ll talk';
     this.soundCat = new Audio ("./sounds/miau.mp3");
-    this.soundDonut = new Audio ("./sounds/bite.mp3");
+    this.soundDonut = new Audio ("./sounds/doh.mp3");
     this.soundSeed = new Audio ("./sounds/seed.mp3");
     this.soundBird = new Audio ("./sounds/move.mp3");
 }
