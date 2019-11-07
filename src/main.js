@@ -201,6 +201,9 @@ function main() {
 
     var nameScoreParsed = JSON.parse(retrieved);
     console.log(nameScoreParsed);
+    
+    nameScoreParsed.sort(function(a, b) {
+       return b.score - a.score; });
 
     for (i=1; i <= 3; i++){
     var newPlayerName = scoreScreen.querySelector('#name'+(i));
