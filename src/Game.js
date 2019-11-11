@@ -1,6 +1,7 @@
 "use strict";
 
-function Game() {
+class Game {
+    constructor () {
     this.canvas = null;
     this.ctx = null;
     this.enemies = [];
@@ -16,7 +17,7 @@ function Game() {
     this.soundSeed = new Audio ("./sounds/seed.mp3");
     this.soundBird = new Audio ("./sounds/move.mp3");
 }
-
+}
 
 Game.prototype.start = function () {
 
