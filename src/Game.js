@@ -16,10 +16,10 @@ class Game {
     this.soundDonut = new Audio ("./sounds/doh.mp3");
     this.soundSeed = new Audio ("./sounds/seed.mp3");
     this.soundBird = new Audio ("./sounds/move.mp3");
-}
-}
+    
+} // End of constructor
 
-Game.prototype.start = function () {
+    start () {
 
     this.canvasContainer = document.querySelector('.canvas-container');
     this.canvas = this.gameScreen.querySelector('canvas');
@@ -60,7 +60,7 @@ Game.prototype.start = function () {
     this.startLoop();
 };
 
-Game.prototype.startLoop = function () {
+    startLoop () {
     var loop = function () {
 
         if (Math.random() > 0.99) {
@@ -130,7 +130,7 @@ Game.prototype.startLoop = function () {
     window.requestAnimationFrame(loop);
 };
 
-Game.prototype.checkCollisions = function () {
+checkCollisions () {
     this.enemies.forEach(function (enemy) {
         if (this.player.didCollide(enemy)) {
             this.player.removeLife();
@@ -212,26 +212,38 @@ Game.prototype.checkCollisions = function () {
     }, this);
 };
 
-Game.prototype.passGameOverCallback = function (callback) {
+passGameOverCallback (callback) {
     this.onGameOverCallback = callback;
 };
 
-Game.prototype.gameOver = function () {
-
+gameOver () {
     this.gameIsOver = true;
-
-
     this.onGameOverCallback(this.score);
 };
 
-Game.prototype.removeGameScreen = function () {
+    removeGameScreen () {
     this.gameScreen.remove();
 };
 
-Game.prototype.updateGameStats = function () {
+    updateGameStats = function () {
 
-    this.livesElement.innerHTML = this.player.lives;
-    this.scoreElement.innerHTML = this.player.score;
-    this.quoteElement.innerHTML = this.quote;
-    this.score = this.player.score;
+        this.livesElement.innerHTML = this.player.lives;
+        this.scoreElement.innerHTML = this.player.score;
+        this.quoteElement.innerHTML = this.quote;
+        this.score = this.player.score;
 };
+
+} // end of class
+
+
+
+
+
+
+
+
+
+
+
+
+
