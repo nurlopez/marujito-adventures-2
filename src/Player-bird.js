@@ -1,6 +1,7 @@
 'use strict';
 
-function Player(canvas, lives, score) {
+class Player {
+  constructor (canvas, lives, score) {
     this.canvas = canvas;
     this.ctx = this.canvas.getContext('2d');
     this.lives = lives;
@@ -16,7 +17,7 @@ function Player(canvas, lives, score) {
     this.imageBirdL = new Image ();
     this.imageBirdL.src = './img/marujitoL.png';
   }
-  
+}
   Player.prototype.setDirection = function(direction) {
     // +1 right  -1 left
     if (direction === 'left'){ this.direction = -1}

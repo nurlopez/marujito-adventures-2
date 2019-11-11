@@ -1,30 +1,29 @@
 'use strict';
 
-function Enemy(canvas, x, speed) {
-    this.canvas = canvas;
-    this.ctx3 = canvas.getContext('2d');
-    this.size = 75;
-    this.y = 0;
-    this.x = x;
-    this.speed = speed;
-    this.imageCat = new Image ();
+class Enemy {
+  constructor (canvas, x, speed) {
+      this.canvas = canvas;
+      this.ctx3 = canvas.getContext('2d');
+      this.size = 75;
+      this.y = 0;
+      this.x = x;
+      this.speed = speed;
+      this.imageCat = new Image ();
   }
   
-  Enemy.prototype.draw = function() {
+  draw () {
     this.imageCat.src = './img/cat.png';
     this.ctx3.drawImage(this.imageCat, this.x, this.y, this.size, this.size);
   };
-  
-  Enemy.prototype.updatePosition = function() {
+
+  updatePosition() {
     this.y = this.y + this.speed;
   };
-  
-  Enemy.prototype.isInsideScreen = function() {
-    
-    if (this.y + this.size / 2 > 0 && this.x + this.size < this.canvas.width) {
+
+  isInsideScreen() {
+      if (this.y + this.size / 2 > 0 && this.x + this.size < this.canvas.width) {
       return true 
     }
-    // if y plus half of its size is smaller then 0 return
-    //return this.y + this.size / 2 > 0;
-  };
+  }
+};
   

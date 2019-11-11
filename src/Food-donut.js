@@ -1,6 +1,7 @@
 'use strict';
 
-function FoodDonut(canvas, x, speed) {
+class FoodDonut {
+  constructor (canvas, x, speed) {
     this.canvas = canvas;
     this.ctx2 = canvas.getContext('2d');
     this.size = 40;
@@ -9,20 +10,19 @@ function FoodDonut(canvas, x, speed) {
     this.speed = speed;
     this.imageDonut = new Image ();
 }
-  
-FoodDonut.prototype.draw = function() {
-  this.imageDonut.src = './img/donut.png';
-  this.ctx2.drawImage(this.imageDonut, this.x, this.y, this.size, this.size);
- };
-  
-  FoodDonut.prototype.updatePosition = function() {
+  draw() {
+    this.imageDonut.src = './img/donut.png';
+    this.ctx2.drawImage(this.imageDonut, this.x, this.y, this.size, this.size);
+  };
+
+  updatePosition () {
     this.y = this.y + this.speed;
   };
-  
-  FoodDonut.prototype.isInsideScreen = function() {
+
+  isInsideScreen () {
     if (this.y + this.size / 2 > 0 && this.x + this.size < this.canvas.width) {
       return true 
     }
-     // if y plus half of its size is smaller then 0 return
-    //return this.y + this.size / 2 > 0;
-  };
+  }
+
+};
