@@ -6,15 +6,11 @@ PROJECT 1
 
 **Main elements**
 
-Lunch can be quite a battle, especially for Marujito de Canary bird. **Marujito Adventures** - is a survival game in which  Marujito teh canary bird has to eat the falling seeds to gain health points and at the same time avoid an early death by Tesla the Cat. 
+Lunch can be quite a battle, especially for Marujito de Canary bird. **Marujito Adventures** - is a survival game in which  Marujito the canary bird has to eat the falling seeds to gain health points and at the same time avoid an early death by Tesla the Cat. 
 
+And additional battle is with his human, Pepita, who likes to share her snacks. Sugary foods are detrimental to Marujito's physical, mental and emotional health, so it's important Marujito avoids them. 
 
-
-**Backlog:** 
-
-And additional battle is with his human, Pepita, who likes to share her snacks . Sugary foods are detrimental to Marujito's physical, mental and emotional health, so it's important Marujito avoids them). 
-
-<u>Bonus/Prize</u>: every 500 health points, Pepita shares a very useful Grandma remedy or life tip for the player.
+<u>Bonus/Prize</u>: every 300 health points, Pepita shares a very useful Grandma remedy or life tip for the player.
 
 
 
@@ -34,8 +30,8 @@ And additional battle is with his human, Pepita, who likes to share her snacks .
 
   - if Cat object collides with Marujito object the game will inmediately end
   - if Seed object collides with Marujito the health score will increase by 100pts and the seed will disappear. 
-  - *(backlog) If Donut object collides with Marujito, the Score will decrease by 50pts and the donut will disappear*
-  - *(backlog) If Score is % 500 === 0, a random text will appear.* 
+  - If Donut object collides with Marujito, the Score will decrease by 100pts and the donut will disappear*
+  - If Score is % 300 === 0, a random text will appear.* 
 
   
 
@@ -120,9 +116,9 @@ Enemy.prototype.isInsideScreen = function () {}
 
 
 
-(**backlog - enemy-donut.js**)
+(**enemy-donut.js**)
 
-**(backlog - grandma-quotes.js)**
+**(grandma-quotes.js)**
 
 
 
