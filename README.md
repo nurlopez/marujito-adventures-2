@@ -207,6 +207,4 @@ https://trello.com/b/Ckt5ULnc
 
 
 ### Git
-https://github.com/nurlopez/marujito-adventures 
-
-### Slides
+https://github.com/nurlopez/marujito-adventures-2 
